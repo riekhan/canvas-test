@@ -1,4 +1,4 @@
-function drawShape(ctx, ship, origin, rotation) {
+export function drawShape(ctx, ship, origin, rotation) {
     let points = ship.points;
     let center = ship.center;
 
@@ -19,7 +19,7 @@ function drawShape(ctx, ship, origin, rotation) {
     ctx.restore();
 }
 
-function getShip() {
+export function getShip() {
     return {
         center: { x: 0, y: 50 },
         points: [{ x: -30, y: 100 },

@@ -1,22 +1,22 @@
-function processInput() {
-    for (keycode in gamestate.input) {
-        let key = gamestate.input[keycode]
+function processInput(state, input) {
+    for (let keycode in input) {
+        let key = input[keycode]
         if (key.pressed) {
-            key.action();
+            key.action(state);
             key.pressed = false;
         }
     }
 }
 
-function processVelocity() {
-    v = gamestate.velocity;
-    o = gamestate.origin;
+function processVelocity(state) {
+    let v = state.velocity;
+    let o = state.origin;
     o.x += v.x;
     o.y += v.y;
-    gamestate.rotation += gamestate.rotationalVelocity;
+    state.rotation += state.rotationalVelocity;
 }
 
-function update() {
-    processInput()
-    processVelocity()
+export function update(state, input) {
+    processInput(state, input)
+    processVelocity(state)
 }
